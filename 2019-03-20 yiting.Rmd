@@ -56,5 +56,26 @@ levels(birthplace)
 class(birthplace)
 as.integer(birthplace)
 ```
+```{r}
+library(lubridate)
+```
+```{r}
+dtObject<-ymd_hms("1970-01-01 00:02:53") 
+```
+```{r}
+dtObjectVector<-ymd_hms(
+  c("1970-01-01 00:02:53",
+    "1980-02-11 11:25:22")
+)
+```
+```{r}
+class(dtObject)
+```
+```{r}
+typeof(dtObject)
+```
+```{r}
+as.double(dtObject)
+```
 
 
