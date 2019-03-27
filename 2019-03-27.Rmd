@@ -9,3 +9,106 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
+```{r}
+library(lubridate)
+```
+```{r}
+dtObject<-ymd_hms("1970-01-01 00:02:53") 
+```
+
+```{r}
+dtObjectVector<-ymd_hms(
+  c("1970-01-01 00:02:53",
+    "1980-02-11 11:25:22")
+)
+```
+
+```{r}
+twDateTime <- ymd_hms("2019-03-27 15:33:00", tz="Asia/Taipei")
+twDateTime
+```
+
+```{r}
+LisbonDateTime <- with_tz(twDateTime,tzone="Europe/Lisbon")
+LisbonDateTime
+```
+```{r}
+typeof(LisbonDateTime)
+as.double(LisbonDateTime)
+as.double(twDateTime)
+```
+```{r}
+twDateTime <-ymd("2018-09-01 ")
+```
+
+```{r}
+as.integer(ymd("1970-01-01"))
+as.integer(ymd("1970-01-02")) 
+as.integer(ymd("2019-03-11")) 
+```
+
+```{r}
+day1<-ymd("2018-09-11")
+day1
+```
+```{r}
+day2<-mdy("march,3,2019")
+day2
+```
+```{r}
+a <- c(1, 5, -3)
+b <- c(0.5, 12, 2)
+```
+```{r}
+aL <- c(1L, 5L, -3L)
+bL <- c(-2L, -4L, 8L)
+```
+```{r}
+a+bL
+class(a+bL)
+```
+```{r}
+a^b
+a %% b
+```
+```{r}
+day3<-ymd("2019-08-11")
+day3
+day4<-ymd("2000-02-01")
+day4
+```
+```{r}
+day3-day4
+```
+```{r}
+class(day3-day4)
+```
+```{r}
+x <- 5
+y <- 7
+
+x2 <- c(1,NA,10)
+y2 <- c(-1,NA,20)
+```
+```{r}
+x>=y
+x==y
+x<=y
+```
+```{r}
+x3 <- c("小明","小花")
+y3 <- c("小明","小華")
+```
+```{r}
+x3==y3
+```
+```{r}
+is.na(x2)
+```
+
+
+
+
+
+
