@@ -8,4 +8,94 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+```{r}
+library(stringr)
+```
+```{r}
+course <- c("個體經濟學","投資學","總體經濟學")
+```
+
+```{r}
+str_subset(course,"經濟學")
+```
+```{r}
+str_detect(course,"經濟學")
+```
+```{r}
+studentID<-c(
+  '410177115','410176080','410174233','410177011','410182045','410176014')
+
+str_sub(studentID,5,6)
+str_sub(studentID,2,4)
+```
+```{r}
+month <- c("3","4","2")
+day <- c("11","5","7")
+```
+
+```{r}
+char1 <- c("月","月","月")
+char2 <- c("日","日","日")
+month
+char1
+day 
+char2
+str_c(month,char1,day,char2)
+```
+```{r}
+str_c(month,day,sep="-")
+```
+
+```{r}
+chineseDate <- c("3月11日","4月5日","2月7日")
+```
+
+```{r}
+dates <- c("3-11", "4-5",  "2-7")
+str_split(dates,"-")
+```
+```{r}
+dates2 <- c("3-11-2019", "4-5-2017",  "2-7-2015")
+dates2
+str_replace(dates2,"-","/")
+str_replace_all(dates2,"-","/")
+```
+```{r}
+library(readr)
+githubData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/githubData.csv")
+username <- githubData$`GitHub username`[11:16]
+reponame <- githubData$`GitHub repo name`[11:16]
+str_c("https://github.com",username,reponame,sep="/")
+```
+```{r}
+library(readr)
+filmVotingData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/%E7%AC%AC%E4%B8%89%E5%B1%86%E7%B6%93%E6%BF%9F%E6%92%AD%E5%AE%A2%E7%AB%B6%E8%B3%BD%E5%8F%83%E8%B3%BD%E4%BD%9C%E5%93%81%E6%8A%95%E7%A5%A8%E7%B5%90%E6%9E%9C%E6%A8%A3%E6%9C%AC%20-%20Sheet1.csv")
+birthday<-filmVotingData$`出生西元年月日（驗證本人用）`
+```
+```{r}
+birthday
+```
+```{r}
+y<-str_sub(birthday,1,4)
+m<-str_sub(birthday,5,6)
+d<-str_sub(birthday,7,8)
+str_c("西元",y,"年",m,"月",d,"日")
+```
+```{r}
+民國年月<-c("099/01","099/02","099/03")
+a<-str_sub(民國年月,2,3)
+b<-str_sub(民國年月,4,6)
+a
+b
+```
+```{r}
+c<-as.integer(a)+1911
+c
+```
+```{r}
+str_c(c,b)
+```
+
+
+
 
