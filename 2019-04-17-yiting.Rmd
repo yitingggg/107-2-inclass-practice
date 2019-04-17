@@ -1,0 +1,97 @@
+---
+title: '2019-04-17'
+author: "謝宜庭"
+date: "4/17/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(dplyr)
+library(stringr)
+library(lubridate)
+```
+```{r}
+studentRecord <-
+  list(
+    學號="410073058",
+    姓名="王小明",
+    性別="男",
+    學年平均成績=list(
+      一年級=88,
+      二年級=90.3,
+      三年級=92,
+      四年級=95
+    )
+  )
+
+studentRecord
+studentRecord[["姓名"]]
+studentRecord[["學年平均成績"]][[3]]
+
+```
+
+
+
+```{r}
+plasticContainer <- list(
+  greenBox=c("paper","scissor"),     # location 1
+  redBox=c(1,3,2.5),               # location 2
+  blueBox=c(TRUE,FALSE,TRUE,TRUE)    # location 3
+)
+```
+```{r}
+extract1 <- plasticContainer[c("greenBox")]
+extract2 <- plasticContainer[[c("greenBox")]]
+```
+
+```{r}
+plasticContainer[["greenBox"]] 
+plasticContainer[[1]]
+```
+```{r}
+plasticContainer[["greenBox"]][[1]]
+```
+
+```{r}
+extract1[["greenBox"]][[1]]
+extract2[[1]]
+
+```
+
+```{r}
+length(plasticContainer)
+plasticContainer[c(T,F,T)]
+```
+```{r}
+成績單 <- c(
+  個經=90,
+  總經=77,
+  統計=88
+)
+成績單
+```
+
+```{r}
+成績單
+成績單[c(FALSE,TRUE,TRUE)]
+```
+```{r}
+your_github_username <- "yitingggg"
+your_practice_reponame <- "107-2-inclass-practice"
+library(httr)
+library(stringr)
+str_replace_all(
+  "https://api.github.com/repos/:owner/:repo/commits",
+  c(
+    ":owner"=your_github_username,
+    ":repo"=your_practice_reponame
+    )
+  ) -> commitCheckStatement
+commitCheckStatement
+commitCheck <- content(GET(commitCheckStatement))
+```
+
