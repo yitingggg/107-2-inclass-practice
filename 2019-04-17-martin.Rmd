@@ -43,6 +43,10 @@ plasticContainer <- list(
   blueBox=c(TRUE,FALSE,TRUE,TRUE)    # location 3
 )
 ```
+```{r}
+extract1 <- plasticContainer[c("greenBox")]
+extract2 <- plasticContainer[[c("greenBox")]]
+```
 
 ```{r}
 plasticContainer[["greenBox"]] 
@@ -50,5 +54,15 @@ plasticContainer[[1]]
 ```
 ```{r}
 plasticContainer[["greenBox"]][[1]]
+```
+
+```{r}
+extract1[["greenBox"]][[1]]
+extract2[[1]]
+
+```
+
+```{r}
+
 ```
 
