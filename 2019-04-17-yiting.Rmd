@@ -95,3 +95,24 @@ commitCheckStatement
 commitCheck <- content(GET(commitCheckStatement))
 ```
 
+```{r}
+commitCheck[[4]][["commit"]][["committer"]][["date"]]
+```
+```{r}
+library(readr)
+filmVotingData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/podcastcompetition3.csv")
+str_replace(filmVotingData$請選擇你最喜歡的影片二部,", by"," by") -> favoriteTwo
+birthday <- filmVotingData$`出生西元年月日（驗證本人用）`
+timeStamp <- filmVotingData$Timestamp
+```
+```{r}
+library(stringr)
+str_split(favoriteTwo,", ") -> favoriteTwoList # 將選擇的兩片split成兩個元素
+unlist(favoriteTwoList) -> allVotes # 將list堆疊成atomic vector
+table(allVotes) # 計算每個類別的次數
+```
+```{r}
+logiCorrect<-str_length(birthday)==8
+logiCorrect
+```
+
