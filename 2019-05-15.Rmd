@@ -126,4 +126,51 @@ exData3
 ```{r}
 exData3[exData3$isAsiaCrisis==T,]
 ```
+```{r}
+library(readr)
+transcriptDataFinal <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/transcriptDataFinal.csv")
+```
+
+```{r}
+names(transcriptDataFinal)
+```
+
+```{r}
+a<-transcriptDataFinal$學號=="92aS67fee"
+transcriptDataFinal[a,]
+```
+
+```{r}
+utility_cobb_douglass2 <- function(x,y,.alpha=0.5,.beta=0.5){
+  utilValue <- x^.alpha*y^.beta
+  return(utilValue)
+}
+```
+
+```{r}
+utility_cobb_douglass2(1,2) # 使用預設值
+utility_cobb_douglass2(1,2,0.5,0.8) # 自定參數值
+```
+
+```{r}
+function1 <- function(x,.alpha){
+  value <- x+.alpha
+  return(value)
+}
+
+class(function1)
+```
+
+```{r}
+supply_fun<-function(a,b,P){
+  Qs=a+b*P
+  return(Qs)}
+demand_fun <- function(c,d,P){
+  Qd <- c-d*P
+  return(Qd)}
+supply_fun(0,1,1)
+demand_fun(5,1,1)
+
+
+```
 
