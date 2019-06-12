@@ -29,3 +29,88 @@ plot(pressure)
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
+```{r}
+for(i in seq_along(studentIds5)){
+  print(studentIds5[[i]])
+}
+```
+```{r}
+i <- 1
+print(studentIds5[[i]])
+```
+```{r}
+for(i in seq_along(studentIds5)){
+  print(studentIds5[[i]])
+}
+```
+```{r}
+gmailAddress <- c(
+  "tim@gmail.com",
+  "anita",
+  "yellen@gmail.com",
+  "huang@gmail.com"
+)
+
+library(stringr)
+
+for(i in seq_along(gmailAddress)){
+  if(!(str_detect(gmailAddress[[i]],"@gmali.com"))){
+    gmailAddress[[i]] <- str_c(gmailAddress[[i]],"@gmali.com")
+  }
+}
+gmailAddress
+```
+
+
+```{r}
+library(stringr)
+for(i in seq_along(gmailAddress)){
+  if (str_detect(gmailAddress[[i]],"@gmail.com")){
+    print(gmailAddress[[i]])}
+  else{
+    print(str_c(gmailAddress[[i]],"@gmail.com"))
+  }
+
+}
+```
+```{r}
+# 開始設定
+gmailAddress <- c(
+  "tim@gmail.com",
+  "anita",
+  "yellen@gmail.com",
+  "huang@gmail.com"
+)
+cat("起始狀況\n")
+gmailAddress
+
+# for loop
+for(i in seq_along(gmailAddress)){
+  if(!str_detect(gmailAddress[[i]],"@gmail.com")){
+    correctGmailAddress <-
+      str_c(gmailAddress[[i]],"@gmail.com")
+    gmailAddress[[i]] <- correctGmailAddress
+  }
+}
+
+cat("修正後狀況\n")
+gmailAddress
+_
+
+
+ 
+
+```
+```{r}
+load(url("https://www.dropbox.com/s/qnz9paigf61yjus/commitHistory.Rda?raw=1"))
+```
+
+```{r}
+for(i in seq_along(commitHistory)){
+  print(commitHistory[[i]]$commit$author$name)
+}
+for(i in seq_along(commitHistory)){
+  print(commitHistory[[i]]$commit$committer$name)
+}
+```
+
