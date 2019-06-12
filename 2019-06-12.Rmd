@@ -114,3 +114,101 @@ for(i in seq_along(commitHistory)){
 }
 ```
 
+```{r}
+saveCharacter <- vector("character",5)
+saveCharacter
+
+saveNumeric <- vector("numeric",5)
+saveNumeric
+
+saveLogical <- vector("logical",5)
+saveLogical
+
+saveList <- vector("list",5)
+saveList
+```
+```{r}
+# 把"你好"存在saveCharacter第3個位置
+saveCharacter # 儲存前
+saveCharacter[[3]] <- "你好"
+saveCharacter # 儲存後
+
+
+```
+```{r}
+# 把 72.3 存在saveNumeric第3個位置
+saveNumeric # 儲存前
+saveNumeric[[3]] <- 72.3
+saveNumeric # 儲存後
+
+
+```
+
+```{r}
+# 把 TRUE 存在saveLogical第3個位置
+saveLogical # 儲存前
+saveLogical[[3]] <- TRUE
+saveLogical # 儲存後
+
+
+```
+
+```{r}
+
+# 把 list(姓名="小明",電話="02-86741111") 存在saveList第3個位置
+saveList # 儲存前
+saveList[[3]] <- list(姓名="小明",電話="02-86741111")
+saveList # 儲存後
+```
+```{r}
+studentIds <- unique(transcriptDataFinal$學號) # sequence_source
+saveGPAs <- vector("numeric",length(studentIds)) # saveContainer
+```
+
+```{r}
+i <- 1
+saveGPAs[[i]] <- gpa_fun(studentIds[[i]])
+```
+```{r}
+studentIds <- unique(transcriptDataFinal$學號) # sequence_source
+saveGPAs <- vector("numeric",length(studentIds)) # saveContainer
+for(i in seq_along(studentIds)){
+  saveGPAs[[i]] <- gpa_fun(studentIds[[i]])
+}
+```
+
+```{r}
+load(url("https://www.dropbox.com/s/qnz9paigf61yjus/commitHistory.Rda?raw=1"))
+```
+```{r}
+saveCommitAuthor <-
+  vector("character",length(commitHistory))
+```
+```{r}
+commitHistory
+```
+```{r}
+i<- 1
+
+commitHistory[[i]]$commit$author$name -> saveCommitAuthor[[i]]
+```
+
+```{r}
+saveEveryThing<-vector("list",length(commitHistory))
+saveSameLogi<-vector("logical",length(commitHistory))
+```
+
+```{r}
+logiresult <- vector("logical",length(commitHistory))
+for (i in seq_along(commitHistory)) {
+  logiresult[[i]] <- (commitHistory[[i]]$commit$author$name
+        ==commitHistory[[i]]$commit$committer$name)
+}
+commitDATE <- vector("character",length(commitHistory))
+for (i in seq_along(commitHistory)) {
+  commitHistory[[i]]$commit$committer$date -> commitDATE[[i]]
+}
+commitDATE[logiresult] -> commitDatee
+commitDatee
+```
+
